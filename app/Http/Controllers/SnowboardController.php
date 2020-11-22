@@ -177,7 +177,7 @@ class SnowboardController extends Controller
         }
 
         if (!is_null($condition)) {
-            $hi = 'hi';
+
             $snowboards = Snowboard::where('price', $condition[0], $condition[1])
                 ->select('brand', 'model', 'image', 'id', 'seller', 'price')
                 ->get();
