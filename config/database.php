@@ -2,7 +2,13 @@
 
 use Illuminate\Support\Str;
 
-$databaseUrl = parse_url(getenv('CLEARDB_DATABASE_URL'));
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+
+$host = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$database = substr($url["path"], 1);
 
 return [
 
@@ -53,11 +59,12 @@ return [
             // 'database' => env('DB_DATABASE', 'forge'),
             // 'username' => env('DB_USERNAME', 'forge'),
             // 'password' => env('DB_PASSWORD', ''),
-            'host' => $databaseUrl['host'],
+
             'port' => 3306,
-            'database' => substr($databaseUrl["path"], 1),
-            'username' => $databaseUrl['user'],
-            'password' => $databaseUrl['pass'],
+            'host'      => $host,
+            'database'  => $database,
+            'username'  => $username,
+            'password'  => $password,
 
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
