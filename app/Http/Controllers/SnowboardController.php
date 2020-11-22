@@ -194,9 +194,10 @@ class SnowboardController extends Controller
                 ->take(3)
                 ->get();
 
-            return view('snowboards.index', [
-                'snowboards' => $snowboards,
-            ]);
+            redirect()->back()->with('snowboards', $snowboards);
+            // return view('snowboards.index', [
+            //     'snowboards' => $snowboards,
+            // ]);
         }
     }
 
