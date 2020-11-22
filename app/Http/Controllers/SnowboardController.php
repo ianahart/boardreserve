@@ -202,7 +202,7 @@ class SnowboardController extends Controller
 
     public function indexRedirect()
     {
-        return redirect('/snowboards?selected=' . Session::get('sort'));
+        return redirect('/snowboards?selected=' . Session::get('selected_value'));
     }
 
     private function makeReqInputAnArray($input)
