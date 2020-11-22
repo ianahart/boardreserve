@@ -205,7 +205,6 @@ class SnowboardController extends Controller
 
     public function indexRedirect()
     {
-
         return redirect('/snowboards');
     }
 
