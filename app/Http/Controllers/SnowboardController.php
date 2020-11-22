@@ -11,7 +11,6 @@ use App\Models\Review;
 
 class SnowboardController extends Controller
 {
-    public $sortedValue;
 
     public function showSnowboardForm()
     {
@@ -147,8 +146,6 @@ class SnowboardController extends Controller
 
         $condition = null;
 
-        $this->sortedValue = $request->input('sort');
-
         Session::put('selected_value', $request->input('sort'));
 
         if (strpos($request->input('sort'), 'alphabetical asc') > -1) {
@@ -197,9 +194,12 @@ class SnowboardController extends Controller
                 ->take(3)
                 ->get();
 
-            return view('snowboards.index', [
-                'snowboards' => $snowboards,
-            ]);
+            return redirect('/snowboards?selected=' . $request->input('sort'));
+
+
+            // return view('snowboards.index', [
+            //     'snowboards' => $snowboards,
+            // ]);
         }
     }
 
