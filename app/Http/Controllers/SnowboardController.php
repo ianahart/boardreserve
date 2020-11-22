@@ -205,7 +205,8 @@ class SnowboardController extends Controller
 
     public function indexRedirect()
     {
-        return redirect('/snowboards?selected=' . $this->sortedValue);
+        sleep(5);
+        return redirect('/snowboards');
     }
 
     private function makeReqInputAnArray($input)
