@@ -168,36 +168,36 @@ class SnowboardController extends Controller
             ]);
         }
 
-        if (strpos($request->input('sort'), '> 500') > -1) {
+        // if (strpos($request->input('sort'), '> 500') > -1) {
 
-            $condition = $this->makeReqInputAnArray($request->input('sort'));
-        } else if (strpos($request->input('sort'), '< 500') > -1) {
+        //     $condition = $this->makeReqInputAnArray($request->input('sort'));
+        // } else if (strpos($request->input('sort'), '< 500') > -1) {
 
-            $condition = $this->makeReqInputAnArray($request->input('sort'));
-        }
+        //     $condition = $this->makeReqInputAnArray($request->input('sort'));
+        // }
 
-        if (!is_null($condition)) {
+        // if (!is_null($condition)) {
 
-            $snowboards = Snowboard::where('price', $condition[0], $condition[1])
-                ->select('brand', 'model', 'image', 'id', 'seller', 'price')
-                ->get();
+        //     $snowboards = Snowboard::where('price', $condition[0], $condition[1])
+        //         ->select('brand', 'model', 'image', 'id', 'seller', 'price')
+        //         ->get();
 
-            return view('snowboards.index', [
-                'snowboards' => $snowboards
-            ]);
-        }
+        //     return view('snowboards.index', [
+        //         'snowboards' => $snowboards
+        //     ]);
+        // }
 
-        if ($request->input('sort') === 'new') {
+        // if ($request->input('sort') === 'new') {
 
-            $snowboards = Snowboard::select('brand', 'model', 'image', 'id', 'seller')
-                ->orderBy('created_at', 'desc')
-                ->take(3)
-                ->get();
+        //     $snowboards = Snowboard::select('brand', 'model', 'image', 'id', 'seller')
+        //         ->orderBy('created_at', 'desc')
+        //         ->take(3)
+        //         ->get();
 
-            return view('snowboards.index', [
-                'snowboards' => $snowboards,
-            ]);
-        }
+        //     return view('snowboards.index', [
+        //         'snowboards' => $snowboards,
+        //     ]);
+        // }
     }
 
     public function indexRedirect()
