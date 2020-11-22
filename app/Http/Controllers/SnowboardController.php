@@ -194,7 +194,7 @@ class SnowboardController extends Controller
                 ->take(3)
                 ->get();
 
-            redirect()->back()->with('snowboards', $snowboards);
+            redirect('/snowboards?selected=' . $request->input('sort'))->with('snowboards', $snowboards);
             // return view('snowboards.index', [
             //     'snowboards' => $snowboards,
             // ]);
