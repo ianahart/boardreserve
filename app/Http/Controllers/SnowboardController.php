@@ -177,14 +177,15 @@ class SnowboardController extends Controller
         }
 
         if (!is_null($condition)) {
-
+            $hi = 'hi';
             $snowboards = Snowboard::where('price', $condition[0], $condition[1])
                 ->select('brand', 'model', 'image', 'id', 'seller', 'price')
                 ->get();
+            return redirect('/snowboards?selected=' . $request->input('sort'));
 
-            return view('snowboards.index', [
-                'snowboards' => $snowboards
-            ]);
+            // return view('snowboards.index', [
+            //     'snowboards' => $snowboards
+            // ]);
         }
 
         if ($request->input('sort') === 'new') {
