@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="inventory-filter-container">
-    <form id="sort-form" method="POST" action="/">
+    <form id="sort-form" method="POST" action="/snowboards?selected=">
       @csrf
       @method('PATCH')
       <select name="sort">
