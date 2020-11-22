@@ -69,7 +69,7 @@ Route::get('/snowboards', [SnowboardController::class, 'index'])->middleware('au
 Route::get('/snowboards/create', [SnowboardController::class, 'showSnowboardForm'])->middleware('auth');
 // Route::get('/snowboards/sort', [SnowboardController::class, 'indexRedirect'])->middleware('auth');
 Route::post('/snowboards', [SnowboardController::class, 'createSnowboardForm']);
-Route::patch('/snowboards', [SnowboardController::class, 'updateSort']);
+Route::post('/snowboards/sort', [SnowboardController::class, 'createSort']);
 Route::get('/snowboards/{id}', [SnowboardController::class, 'showDetails'])->middleware('auth');
 
 // REVIEWS

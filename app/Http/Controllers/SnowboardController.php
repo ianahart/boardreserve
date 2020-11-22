@@ -140,7 +140,7 @@ class SnowboardController extends Controller
         }
     }
 
-    public function updateSort(Request $request)
+    public function createSort(Request $request)
     {
         $order = null;
 
@@ -194,9 +194,10 @@ class SnowboardController extends Controller
                 ->take(3)
                 ->get();
 
-            return view('snowboards.index', [
-                'snowboards' => $snowboards,
-            ]);
+            return redirect('/snowboards?selected=' . $request->input('sort'))->with('snowboards', $snowboards);
+            // return view('snowboards.index', [
+            //     'snowboards' => $snowboards,
+            // ]);
         }
     }
 
