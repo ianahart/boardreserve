@@ -14,10 +14,23 @@
     </div>
   </div>
   <div class="inventory-filter-container">
-    <form action="/users" method="POST">
+    <form id="sort-form" action="/snowboards?selected=" method="POST">
       @csrf
       <button type="submit"></button>
     </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
   </div>
   <div class="inventory">
     @foreach($snowboards as $snowboard)
