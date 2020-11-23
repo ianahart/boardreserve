@@ -30,7 +30,6 @@
     </form>
   </div>
   <div class="inventory">
-    {{ session('snowboards') ?? '' }}
 
     @foreach($snowboards as $snowboard)
     <div class="snowboard">
