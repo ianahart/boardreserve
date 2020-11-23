@@ -16,9 +16,17 @@
   <div class="inventory-filter-container">
     <form action="/snowboards?selected=" method="POST">
       @csrf
-      <option>hi</option>
+      <option></option>
+      <select name="sort">
+        <option value="alphabetical asc" @if( session('selected_value')==='alphabetical asc' ) selected="selected" @endif>A-Z by Brand</option>
+        <option value="alphabetical desc" @if( session('selected_value')==='alphabetical desc' ) selected="selected" @endif>Z-A by Brand</option>
+        <option value="> 500" @if( session('selected_value')==='> 500' ) selected="selected" @endif>Over than $500.00</option>
+        <option value="< 500" @if( session('selected_value')==='< 500' ) selected="selected" @endif>Less than $500.00</option>
+        <option value="new" @if( session('selected_value')==='new' ) selected="selected" @endif>New Arrivals</option>
+      </select>
+      <i class="fas fa-sort"></i>
 
-      <button type="submit">Submit</button>
+      <button type="submit"><i class="fas fa-filter"></i> Filter</button>
     </form>
   </div>
   <div class="inventory">
