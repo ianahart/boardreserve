@@ -204,10 +204,10 @@ class SnowboardController extends Controller
         }
     }
 
-    // public function indexRedirect()
-    // {
-    //     return redirect('/snowboards');
-    // }
+    public function indexRedirect()
+    {
+        return redirect('/snowboards');
+    }
 
     private function makeReqInputAnArray($input)
     {
