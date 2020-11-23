@@ -182,9 +182,6 @@ class SnowboardController extends Controller
             return redirect('/snowboards?selected=' . $request->input('sort'))
             ->with('snowboards', $snowboards);
 
-            // return view('snowboards.index', [
-            //     'snowboards' => $snowboards
-            // ]);
         }
 
         if ($request->input('sort') === 'new') {
@@ -197,10 +194,6 @@ class SnowboardController extends Controller
             return redirect('/snowboards?selected=' . $request->input('sort'))
             ->with('snowboards', $snowboards);
 
-
-            // return view('snowboards.index', [
-            //     'snowboards' => $snowboards,
-            // ]);
         }
     }
 

@@ -30,16 +30,7 @@
     </form>
   </div>
   <div class="inventory">
-    @php
-    $snowboardsToShow = NULL;
-    if (session('snowboards'))
-    $snowboardsToShow = session('snowboards');
-    else {
-    $snowboardsToShow = $snowboards;
-    }
-    @endphp
-
-    @foreach($snowboardsToShow as $snowboard)
+    {{ session('snowboards') }}
     <div class="snowboard">
       @if($snowboard->image)
       <a href="/snowboards/{{$snowboard->id}}"><img class="shop-snowboard-image" src="{{Storage::disk('s3')->url($snowboard->image)}}"></a>
