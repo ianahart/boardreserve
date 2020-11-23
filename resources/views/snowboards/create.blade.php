@@ -3,7 +3,7 @@
 @section('content')
 <div class="add-snowboard-hero"></div>
 <div class="add-snowboard-form-container">
-  <form method="POST" action="/snowboards" enctype="multipart/form-data" class="register-form">
+  <form method="POST" action="/snowboards/sell" enctype="multipart/form-data" class="register-form">
     @csrf
     <h2>Sell Your Snowboard</h2>
     <div class="image-banner">
