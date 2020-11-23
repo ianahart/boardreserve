@@ -30,8 +30,40 @@
     </form>
   </div>
   <div class="inventory">
-    {{ session('snowboards') ?? '' }}
+    @if(session('snowboards'))
 
+    @foreach(session('snowboards') as $snowboard)
+    <div class="snowboard">
+      @if($snowboard->image)
+      <a href="/snowboards/{{$snowboard->id}}"><img class="shop-snowboard-image" src="{{Storage::disk('s3')->url($snowboard->image)}}"></a>
+      @else
+      <a href="/snowboards/{{$snowboard->id}}"><img class="shop-snowboard-image" src="/img/no-picture-2.png" /></a>
+      @endif
+      <div class="shop-board-stats">
+        <h3>{{ $snowboard->brand }}</h3>
+        <span>|</span>
+        <p>{{ $snowboard->model }}</p>
+      </div>
+
+      <div class="shop-actions-container">
+        @if(session('userID') !== $snowboard->seller)
+        <form action="/users/cart" method="POST">
+          @csrf
+          <input type="hidden" value="{{$snowboard->id}}" name="board" />
+          @if ($snowboard->quantity !== 0)
+          <button type="submit"><i class="fas fa-cart-plus"></i> Add to cart</button>
+          @else
+          <div class="out-of-stock">Out of Stock</div>
+          @endif
+        </form>
+        @else
+        <div class="owner-button"><i class="fas fa-wallet"></i> Owner</div>
+        @endif
+        <a href="/snowboards/{{$snowboard->id}}"><i class="fas fa-file-alt"></i> Board Details</a>
+      </div>
+    </div>
+    @endforeach
+    @else
     @foreach($snowboards as $snowboard)
     <div class="snowboard">
       @if($snowboard->image)
@@ -63,6 +95,7 @@
       </div>
     </div>
     @endforeach
+    @endif
   </div>
 </div>
 <script src="/js/inventory.js"></script>
