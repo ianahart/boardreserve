@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="inventory-filter-container">
-    <form id="sort-form" method="POST">
+    <form id="sort-form" method="POST" action="/">
       @csrf
       <select name="sort">
         <option value="alphabetical asc" @if( session('selected_value')==='alphabetical asc' ) selected="selected" @endif>A-Z by Brand</option>
