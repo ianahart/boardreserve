@@ -66,9 +66,9 @@ Route::patch('/users/following/{id}', [UserController::class, 'updateRemoveFromF
 
 // SNOWBOARDS
 Route::get('/snowboards', [SnowboardController::class, 'index'])->middleware('auth');
+Route::post('/snowboards', [SnowboardController::class, 'createSort']);
 Route::get('/snowboards/create', [SnowboardController::class, 'showSnowboardForm'])->middleware('auth');
 Route::post('/snowboards/create', [SnowboardController::class, 'createSnowboardForm']);
-Route::post('/snowboards', [SnowboardController::class, 'createSort']);
 Route::get('/snowboards/{id}', [SnowboardController::class, 'showDetails'])->middleware('auth');
 
 // REVIEWS
