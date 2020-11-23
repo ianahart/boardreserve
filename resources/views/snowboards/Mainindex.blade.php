@@ -17,11 +17,7 @@
     <form id="sort-form" action="/snowboards?selected=" method="POST">
       @csrf
       <select name="sort">
-        <option value="alphabetical asc" @if(session('selected_value')==='alphabetical asc' ) selected="selected" @endif>A-Z by Brand</option>
-        <option value="alphabetical desc" @if(session('selected_value')==='alphabetical desc' ) selected="selected" @endif>Z-A by Brand</option>
-        <option value="> 500" @if(session('selected_value')==='> 500' ) selected="selected" @endif>Over $500.00</option>
-        <option value="< 500" @if(session('selected_value')==='< 500' ) selected="selected" @endif>Less Than $500.00</option>
-        <option value="new" @if(session('selected_value')==='new' ) selected="selected" @endif>New Arrivals</option>
+        <option>hio</option>
       </select>
       <i class="fas fa-sort"></i>
       <button type="submit"><i class="fas fa-filter"></i> Filter</button>
