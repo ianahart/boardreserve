@@ -142,6 +142,7 @@ class SnowboardController extends Controller
 
     public function createSort(Request $request)
     {
+        return redirect('/users');
         $order = null;
 
         $condition = null;
@@ -204,10 +205,7 @@ class SnowboardController extends Controller
         }
     }
 
-    public function indexRedirect()
-    {
-        return redirect('/snowboards');
-    }
+
 
     private function makeReqInputAnArray($input)
     {
