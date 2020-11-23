@@ -28,7 +28,7 @@ class SnowboardController extends Controller
 
     public function createSnowboardForm(Request $request)
     {
-        // dd($request->file('file'));
+
         $validatedData = $request->validate([
             'brand' => [
                 'required',

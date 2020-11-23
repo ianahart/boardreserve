@@ -3,6 +3,7 @@
 @section('content')
 <div class="add-snowboard-hero"></div>
 <div class="add-snowboard-form-container">
+  <div></div>
   <form method="POST" action="/snowboards/create" enctype="multipart/form-data" class="register-form">
     @csrf
     <h2>Sell Your Snowboard</h2>
