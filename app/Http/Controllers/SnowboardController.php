@@ -163,7 +163,7 @@ class SnowboardController extends Controller
                 ->get();
 
             return redirect('/snowboards?selected=' . $request->input('sort'))
-            ->with('snowboards', $snowboards)
+                ->with('snowboards', $snowboards);
         }
 
         if (strpos($request->input('sort'), '> 500') > -1) {
@@ -180,8 +180,7 @@ class SnowboardController extends Controller
                 ->select('brand', 'model', 'image', 'id', 'seller', 'price')
                 ->get();
             return redirect('/snowboards?selected=' . $request->input('sort'))
-            ->with('snowboards', $snowboards);
-
+                ->with('snowboards', $snowboards);
         }
 
         if ($request->input('sort') === 'new') {
@@ -192,8 +191,7 @@ class SnowboardController extends Controller
                 ->get();
 
             return redirect('/snowboards?selected=' . $request->input('sort'))
-            ->with('snowboards', $snowboards);
-
+                ->with('snowboards', $snowboards);
         }
     }
 
