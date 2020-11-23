@@ -30,7 +30,6 @@
     </form>
   </div>
   <div class="inventory">
-    {{ session('snowboards') }}
     @foreach((count($snowboards) > 0 ? $snowboards : session('snowboards')) as $snowboard)
     <div class="snowboard">
       @if($snowboard->image)
