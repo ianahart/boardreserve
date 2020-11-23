@@ -30,7 +30,7 @@
     </form>
   </div>
   <div class="inventory">
-    <div></div>
+    {{ session('snowboards') }}
     @foreach($snowboards as $snowboard)
     <div class="snowboard">
       @if($snowboard->image)
