@@ -23,7 +23,7 @@ class SnowboardController extends Controller
 
         $snowboards = Snowboard::select('brand', 'model', 'quantity', 'image', 'id', 'seller', 'price')->get();
 
-        return view('snowboards.Mainindex', ['snowboards' => $snowboards]);
+        return view('snowboards.indexinventory', ['snowboards' => $snowboards]);
     }
 
     public function createSnowboardForm(Request $request)
