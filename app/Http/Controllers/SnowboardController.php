@@ -161,12 +161,9 @@ class SnowboardController extends Controller
             $snowboards = Snowboard::select('brand', 'model', 'image', 'id', 'seller', 'price')
                 ->orderBy('brand', $order)
                 ->get();
-            return redirect('/snowboards?selected=' . $request->input('sort'));
 
-            // return view('snowboards.index', [
-            //     'snowboards' => $snowboards,
-            //     'selected_value' => $request->input('sort')
-            // ]);
+            return redirect('/snowboards?selected=' . $request->input('sort'))
+            ->with('snowboards', $snowboards)
         }
 
         if (strpos($request->input('sort'), '> 500') > -1) {
@@ -182,7 +179,8 @@ class SnowboardController extends Controller
             $snowboards = Snowboard::where('price', $condition[0], $condition[1])
                 ->select('brand', 'model', 'image', 'id', 'seller', 'price')
                 ->get();
-            return redirect('/snowboards?selected=' . $request->input('sort'));
+            return redirect('/snowboards?selected=' . $request->input('sort'))
+            ->with('snowboards', $snowboards);
 
             // return view('snowboards.index', [
             //     'snowboards' => $snowboards
@@ -196,7 +194,8 @@ class SnowboardController extends Controller
                 ->take(3)
                 ->get();
 
-            return redirect('/snowboards?selected=' . $request->input('sort'));
+            return redirect('/snowboards?selected=' . $request->input('sort'))
+            ->with('snowboards', $snowboards);
 
 
             // return view('snowboards.index', [

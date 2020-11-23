@@ -30,6 +30,15 @@
     </form>
   </div>
   <div class="inventory">
+    @php
+    $snowboardsToShow = NULL;
+    if (session('snowboards'))
+    $snowboardsToShow = session('snowboards');
+    else {
+    $snowboardsToShow = $snowboards;
+    }
+    @endphp
+
     @foreach($snowboards as $snowboard)
     <div class="snowboard">
       @if($snowboard->image)
