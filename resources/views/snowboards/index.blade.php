@@ -31,7 +31,7 @@
   </div>
   <div class="inventory">
     {{ session('snowboards') }}
-    @foreach($snowboards as $snowboard)
+    @foreach((count($snowboards) > 0 ? $snowboards : session('snowboards')) as $snowboard)
     <div class="snowboard">
       @if($snowboard->image)
       <a href="/snowboards/{{$snowboard->id}}"><img class="shop-snowboard-image" src="{{Storage::disk('s3')->url($snowboard->image)}}"></a>
