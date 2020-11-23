@@ -30,7 +30,7 @@
     </form>
   </div>
   <div class="inventory">
-    @foreach((count($snowboards) > 0 ? $snowboards : session('snowboards')) as $snowboard)
+    @foreach((isset(session('snowboards')) ? session('snowboards'):$snowboards ) as $snowboard)
     <div class="snowboard">
       @if($snowboard->image)
       <a href="/snowboards/{{$snowboard->id}}"><img class="shop-snowboard-image" src="{{Storage::disk('s3')->url($snowboard->image)}}"></a>
